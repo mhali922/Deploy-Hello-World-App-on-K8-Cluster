@@ -47,7 +47,7 @@ systemctl enable kubelet.service
 ** Execute below command as a ROOT user
    kubeadm init
    
-** exit as a ROOT user and execute below commands as a normal user but wait first run a cni then jump to Step 2 -
+** exit as a ROOT user and execute below commands as a normal user
 2
 -To start using your cluster, you need to run the following as a regular user:
 
@@ -55,11 +55,10 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 
-
 3
 kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
-4
 
+4
 ** Below command is to get token to connect SLAVE machines
    kubeadm token create --print-join-command
    
